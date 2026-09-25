@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iyunga Secondary School Student Management System">
+    <title>Dashboard | Iyunga School Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+            <div class="sidebar-top">
+                <div class="brand">
+                    <div class="brand-logo" aria-hidden="true">
+                        <span>IS</span>
+                    </div>
+                    <div class="brand-text">
+                        <strong>Iyunga</strong>
+                        <span>School Management</span>
+                    </div>
+                </div>
+
+                <button class="icon-button sidebar-close" id="sidebarClose"
+                        type="button" aria-label="Close navigation">
+                    <span class="icon">×</span>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <p class="nav-label">MAIN MENU</p>
+
+                <a href="#" class="nav-item active" data-nav="Dashboard">
+                    <span class="nav-icon">⌂</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#" class="nav-item" data-nav="Students">
+                    <span class="nav-icon">♙</span>
+                    <span>Students</span>
+                </a>
+
+                <a href="#" class="nav-item" data-nav="Add Student">
+                    <span class="nav-icon">＋</span>
+                    <span>Add Student</span>
+                </a>
+
+                <a href="#" class="nav-item" data-nav="Student Records">
+                    <span class="nav-icon">▤</span>
+                    <span>Student Records</span>
+                </a>
+
+                <p class="nav-label settings-label">SYSTEM</p>
+
+                <a href="#" class="nav-item" data-nav="Settings">
+                    <span class="nav-icon">⚙</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-divider"></div>
+                <a href="#" class="nav-item logout" data-nav="Logout">
+                    <span class="nav-icon">↪</span>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="icon-button menu-toggle" id="menuToggle"
+                            type="button" aria-label="Open navigation" aria-expanded="false">
+                        <span class="hamburger"><i></i><i></i><i></i></span>
+                    </button>
+                    <div class="page-heading">
+                        <span class="eyebrow">ADMIN PORTAL</span>
+                        <h1 id="topbarTitle">Dashboard</h1>
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="topbar-icon" id="globalSearchButton" type="button" aria-label="Search students" title="Search students">
+                        <span>⌕</span>
+                    </button>
+                    <button class="topbar-icon notification-button" id="notificationButton" type="button" aria-label="Notifications" title="Notifications">
+                        <span>♢</span>
+                        <i class="notification-dot"></i>
+                    </button>
+                    <button class="profile" id="profileButton" type="button" aria-label="Open administrator profile" title="Administrator profile">
+                        <div class="avatar" aria-hidden="true">A</div>
+                        <div class="profile-info">
+                            <strong>Administrator</strong>
+                            <span>System Admin</span>
+                        </div>
+                        <span class="profile-chevron">⌄</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="dashboard-content">
+                <section class="welcome-section">
+                    <div>
+                        <p class="section-kicker">OVERVIEW</p>
+                        <h2>Dashboard</h2>
+                        <p class="welcome-text">
+                            Welcome to <strong>Iyunga Secondary School</strong> Student Management System.
+                        </p>
+                        <p class="welcome-subtext">
+                            Manage student information and school records from one centralized system.
+                        </p>
+                    </div>
+                    <div class="welcome-mark" aria-hidden="true">
+                        <span>IS</span>
+                    </div>
+                </section>
+
+                <section class="section-block" aria-labelledby="statistics-title">
+                    <div class="section-header">
+                        <div>
+                            <p class="section-kicker">SYSTEM OVERVIEW</p>
+                            <h3 id="statistics-title">Statistics</h3>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <article class="stat-card">
+                            <div class="stat-icon students-icon">♙</div>
+                            <div class="stat-content">
+                                <span>Total Students</span>
+                                <strong id="totalStudents">0</strong>
+                            </div>
+                            <span class="stat-arrow">→</span>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon active-icon">✓</div>
+                            <div class="stat-content">
+                                <span>Active Students</span>
+                                <strong id="activeStudents">0</strong>
+                            </div>
+                            <span class="stat-arrow">→</span>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon classes-icon">▦</div>
+                            <div class="stat-content">
+                                <span>Classes</span>
+                                <strong id="classCount">0</strong>
+                            </div>
+                            <span class="stat-arrow">→</span>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-icon records-icon">▤</div>
+                            <div class="stat-content">
+                                <span>Records</span>
+                                <strong id="recordCount">0</strong>
+                            </div>
+                            <span class="stat-arrow">→</span>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section-block records-section" id="studentRecords" aria-labelledby="records-title">
+                    <div class="section-header records-header">
+                        <div>
+                            <p class="section-kicker">STUDENT DIRECTORY</p>
+                            <h3 id="records-title">Student Records</h3>
+                        </div>
+                        <button class="primary-button" id="addStudentButton" type="button">＋ Add Student</button>
+                    </div>
+
+                    <div class="crud-layout">
+                        <form class="student-form" id="studentForm">
+                            <div class="form-heading">
+                                <div>
+                                    <p class="section-kicker">RECORD DETAILS</p>
+                                    <h4 id="formTitle">Add a student</h4>
+                                </div>
+                                <button class="form-reset" id="cancelEdit" type="button" hidden>Cancel</button>
+                            </div>
+                            <input id="studentId" type="hidden">
+                            <label>
+                                Full name
+                                <input id="studentName" name="name" type="text" placeholder="e.g. Amina Mwakalinga" required>
+                            </label>
+                            <label>
+                                Student ID
+                                <input id="studentCode" name="code" type="text" placeholder="e.g. IS-2026-014" required>
+                            </label>
+                            <div class="form-row">
+                                <label>
+                                    Class
+                                    <select id="studentClass" name="className" required>
+                                        <option value="Form 1">Form 1</option>
+                                        <option value="Form 2">Form 2</option>
+                                        <option value="Form 3">Form 3</option>
+                                        <option value="Form 4">Form 4</option>
+                                        <option value="Form 5">Form 5</option>
+                                        <option value="Form 6">Form 6</option>
+                                    </select>
+                                </label>
+                                <label>
+                                    Status
+                                    <select id="studentStatus" name="status" required>
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <button class="primary-button form-submit" type="submit" id="submitStudent">Save Student</button>
+                        </form>
+
+                        <div class="records-panel">
+                            <div class="records-tools">
+                                <label class="search-field">
+                                    <span aria-hidden="true">⌕</span>
+                                    <input id="studentSearch" type="search" placeholder="Search students..." aria-label="Search students">
+                                </label>
+                                <span class="record-count" id="visibleRecordCount">0 records</span>
+                            </div>
+                            <div class="table-wrap">
+                                <table>
+                                    <thead>
+                                        <tr><th>Student</th><th>Class</th><th>Status</th><th>Actions</th></tr>
+                                    </thead>
+                                    <tbody id="studentTableBody"></tbody>
+                                </table>
+                                <div class="empty-state" id="emptyState" hidden>No student records match your search.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-block" aria-labelledby="quick-actions-title">
+                    <div class="section-header">
+                        <div>
+                            <p class="section-kicker">SHORTCUTS</p>
+                            <h3 id="quick-actions-title">Quick Actions</h3>
+                        </div>
+                    </div>
+
+                    <div class="actions-grid">
+                        <button class="action-card" type="button" data-action="Add Student">
+                            <div class="action-icon">＋</div>
+                            <div class="action-content">
+                                <strong>Add Student</strong>
+                                <span>Register a new student.</span>
+                            </div>
+                            <span class="action-arrow">→</span>
+                        </button>
+
+                        <button class="action-card" type="button" data-action="View Students">
+                            <div class="action-icon">♙</div>
+                            <div class="action-content">
+                                <strong>View Students</strong>
+                                <span>Browse student information.</span>
+                            </div>
+                            <span class="action-arrow">→</span>
+                        </button>
+
+                        <button class="action-card" type="button" data-action="Student Records">
+                            <div class="action-icon">▤</div>
+                            <div class="action-content">
+                                <strong>Student Records</strong>
+                                <span>Access student records.</span>
+                            </div>
+                            <span class="action-arrow">→</span>
+                        </button>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="footer">
+                <span>Iyunga Secondary School Management System</span>
+                <span>© <span id="currentYear"></span></span>
+            </footer>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
